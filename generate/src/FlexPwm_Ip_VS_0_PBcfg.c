@@ -121,12 +121,12 @@ static const FlexPwm_Ip_FaultChCfgTypes FlexPwm_Ip_VS_0_FaultCfg_I0 =
     /* FaultNotification */      {NULL_PTR, NULL_PTR, NULL_PTR, NULL_PTR}
 };
 
-/* FlexPwm instance 0 subModule 3 channel PWMX configuration */
-const FlexPwm_Ip_ChannelCfgTypes FlexPwm_Ip_VS_0_ChannelCfg_I0_S3_PWMX =
+/* FlexPwm instance 0 subModule 0 channel PWMA configuration */
+const FlexPwm_Ip_ChannelCfgTypes FlexPwm_Ip_VS_0_ChannelCfg_I0_S0_PWMA =
 {
-    /* ChannelId */               FLEXPWM_IP_PWMX,
+    /* ChannelId */               FLEXPWM_IP_PWMA,
     /* Polarity */                FLEXPWM_IP_POL_HIGH,
-    /* DutyCycle */               0U,
+    /* DutyCycle */               5000U,
     /* PhaseShiftTicks */         0U,
     /* OutputTrig */              FLEXPWM_IP_NO_TRIGGER,
     /* FaultState */              FLEXPWM_IP_OUTPUT_STATE_LOGIC_0,
@@ -138,16 +138,16 @@ const FlexPwm_Ip_ChannelCfgTypes FlexPwm_Ip_VS_0_ChannelCfg_I0_S3_PWMX =
                                   }
 };
 
-/* FlexPwm instance 0 subModule 3 channels configuration array */
-static const FlexPwm_Ip_ChannelCfgTypes * const FlexPwm_Ip_VS_0_ChannelCfg_I0_S3_Array[1U] =
+/* FlexPwm instance 0 subModule 0 channels configuration array */
+static const FlexPwm_Ip_ChannelCfgTypes * const FlexPwm_Ip_VS_0_ChannelCfg_I0_S0_Array[1U] =
 {
-    &FlexPwm_Ip_VS_0_ChannelCfg_I0_S3_PWMX
+    &FlexPwm_Ip_VS_0_ChannelCfg_I0_S0_PWMA
 };
 
-/* FlexPwm instance 0 subModule 3 SubModule configuration */
-static const FlexPwm_Ip_SubModuleCfgTypes FlexPwm_Ip_VS_0_SubModCfg_I0_S3 =
+/* FlexPwm instance 0 subModule 0 SubModule configuration */
+static const FlexPwm_Ip_SubModuleCfgTypes FlexPwm_Ip_VS_0_SubModCfg_I0_S0 =
 {
-    /* SubModuleId */              3U,
+    /* SubModuleId */              0U,
     /* ClkSource */                FLEXPWM_IP_CLKSOURCE_PERIPHERAL_CLK,
     /* InitControl */              FLEXPWM_IP_INIT_LOCAL_SYNC,
     /* Prescaler */                FLEXPWM_IP_DIV1,
@@ -156,30 +156,78 @@ static const FlexPwm_Ip_SubModuleCfgTypes FlexPwm_Ip_VS_0_SubModCfg_I0_S3 =
     /* Reload */                   FLEXPWM_IP_RELOAD_FULL,
     /* LoadFrq */                  FLEXPWM_IP_LDFQ_EACH1,
     /* ForceSrc */                 FLEXPWM_IP_LOCAL_FORCE,
-    /* ChPair */                   FLEXPWM_IP_INDEPENDENT,
+    /* ChPair */                   FLEXPWM_IP_COMPLEMENTARY,
     /* SigPwm */                   FLEXPWM_IP_EDGE_ALIGNED,
     /* InitVal */                  0U,
     /* CompSrc */                  FLEXPWM_IP_COMP_SOURCE23,
     /* DeadTimeCount0 */           0U,
     /* DeadTimeCount1 */           0U,
     /* DebugModeEnable */          1U,
-    /* ChannelCfgArray */          FlexPwm_Ip_VS_0_ChannelCfg_I0_S3_Array,
+    /* ChannelCfgArray */          FlexPwm_Ip_VS_0_ChannelCfg_I0_S0_Array,
     /* NumChannelCfg */            1U,
-    /* Period */                   32768U
+    /* Period */                   10000U
+};
+
+/* FlexPwm instance 0 subModule 2 channel PWMA configuration */
+const FlexPwm_Ip_ChannelCfgTypes FlexPwm_Ip_VS_0_ChannelCfg_I0_S2_PWMA =
+{
+    /* ChannelId */               FLEXPWM_IP_PWMA,
+    /* Polarity */                FLEXPWM_IP_POL_HIGH,
+    /* DutyCycle */               5000U,
+    /* PhaseShiftTicks */         5000U,
+    /* OutputTrig */              FLEXPWM_IP_NO_TRIGGER,
+    /* FaultState */              FLEXPWM_IP_OUTPUT_STATE_LOGIC_0,
+    /* DisOutputFault */          0U,
+    /* InterruptType */           FLEXPWM_IP_DISABLE_INT,
+    /* ChannelCb */               {
+        /* CbFunction */              NULL_PTR,
+        /* CbParameter */             NULL_PTR
+                                  }
+};
+
+/* FlexPwm instance 0 subModule 2 channels configuration array */
+static const FlexPwm_Ip_ChannelCfgTypes * const FlexPwm_Ip_VS_0_ChannelCfg_I0_S2_Array[1U] =
+{
+    &FlexPwm_Ip_VS_0_ChannelCfg_I0_S2_PWMA
+};
+
+/* FlexPwm instance 0 subModule 2 SubModule configuration */
+static const FlexPwm_Ip_SubModuleCfgTypes FlexPwm_Ip_VS_0_SubModCfg_I0_S2 =
+{
+    /* SubModuleId */              2U,
+    /* ClkSource */                FLEXPWM_IP_CLKSOURCE_PERIPHERAL_CLK,
+    /* InitControl */              FLEXPWM_IP_INIT_MASTER_RELOAD,
+    /* Prescaler */                FLEXPWM_IP_DIV1,
+    /* PrescalerAlt */             FLEXPWM_IP_DIV1,
+    /* ReloadSrc */                FLEXPWM_IP_LOCAL_RELOAD,
+    /* Reload */                   FLEXPWM_IP_RELOAD_FULL,
+    /* LoadFrq */                  FLEXPWM_IP_LDFQ_EACH1,
+    /* ForceSrc */                 FLEXPWM_IP_LOCAL_FORCE,
+    /* ChPair */                   FLEXPWM_IP_COMPLEMENTARY,
+    /* SigPwm */                   FLEXPWM_IP_PHASE_SHIFTED,
+    /* InitVal */                  0U,
+    /* CompSrc */                  FLEXPWM_IP_COMP_SOURCE23,
+    /* DeadTimeCount0 */           0U,
+    /* DeadTimeCount1 */           0U,
+    /* DebugModeEnable */          1U,
+    /* ChannelCfgArray */          FlexPwm_Ip_VS_0_ChannelCfg_I0_S2_Array,
+    /* NumChannelCfg */            1U,
+    /* Period */                   10000U
 };
 
 /* FlexPwm instance 0 SubModule configuration array */
-static const FlexPwm_Ip_SubModuleCfgTypes * const FlexPwm_Ip_VS_0_SubModCfg_I0_Array[1U] =
+static const FlexPwm_Ip_SubModuleCfgTypes * const FlexPwm_Ip_VS_0_SubModCfg_I0_Array[2U] =
 {
-    &FlexPwm_Ip_VS_0_SubModCfg_I0_S3
+    &FlexPwm_Ip_VS_0_SubModCfg_I0_S0,
+    &FlexPwm_Ip_VS_0_SubModCfg_I0_S2
 };
 
 /* FlexPwm instance 0 Configuration*/    
 const FlexPwm_Ip_InstanceCfgTypes FlexPwm_Ip_VS_0_InstanceCfg_I0 =
 {
-    /* OutputEnable */               8U,
+    /* OutputEnable */               1360U,
     /* MaskOutput */                 0U,
-    /* MasterControlRun */           8U,
+    /* MasterControlRun */           5U,
     /* FaultFunctionalityEnable */   (boolean)FALSE,
     /* FaultGlitchStretchEnable */   FALSE,
     /* FaultFilterCounter */         0U,
@@ -187,7 +235,7 @@ const FlexPwm_Ip_InstanceCfgTypes FlexPwm_Ip_VS_0_InstanceCfg_I0 =
     /* NoCombinationalPath */        0U,
     /* FaultChCfg */                 &FlexPwm_Ip_VS_0_FaultCfg_I0,
     /* SubModuleCfgArray */          FlexPwm_Ip_VS_0_SubModCfg_I0_Array,
-    /* NumSubModuleCfg */            1U
+    /* NumSubModuleCfg */            2U
 };
 
 #define PWM_STOP_SEC_CONFIG_DATA_UNSPECIFIED

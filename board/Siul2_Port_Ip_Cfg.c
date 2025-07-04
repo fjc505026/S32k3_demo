@@ -105,7 +105,10 @@ extern "C"{
 PortContainer_0_VS_0:
 - options: {callFromInitBoot: 'true', coreID: M7_0_0}
 - pin_list:
-  - {pin_num: J17, peripheral: FlexPWM_0, signal: 'pwm_0_x, 3', pin_signal: PTB14, direction: OUTPUT}
+  - {pin_num: F16, peripheral: FlexPWM_0, signal: 'pwm_0_a, 2', pin_signal: PTD2, direction: OUTPUT}
+  - {pin_num: F17, peripheral: FlexPWM_0, signal: 'pwm_0_b, 2', pin_signal: PTD3, direction: OUTPUT}
+  - {pin_num: D16, peripheral: FlexPWM_0, signal: 'pwm_0_a, 0', pin_signal: PTD24, direction: OUTPUT}
+  - {pin_num: D17, peripheral: FlexPWM_0, signal: 'pwm_0_b, 0', pin_signal: PTA2, direction: OUTPUT}
  * BE CAREFUL MODIFYING THIS COMMENT - IT IS YAML SETTINGS FOR TOOLS ***********
  */
 /* clang-format on */
@@ -118,8 +121,56 @@ const Siul2_Port_Ip_PinSettingsConfig g_pin_mux_InitConfigArr_PortContainer_0_VS
 {
     {
         .base                        = IP_SIUL2,
-        .pinPortIdx                  = 46u,
-        .mux                         = PORT_MUX_ALT12,
+        .pinPortIdx                  = 98u,
+        .mux                         = PORT_MUX_ALT10,
+        .safeMode                    = PORT_SAFE_MODE_DISABLED,
+        .inputFilter                 = PORT_INPUT_FILTER_NOT_AVAILABLE,
+        .driveStrength               = PORT_DRIVE_STRENTGTH_NOT_AVAILABLE,
+        .pullConfig                  = PORT_INTERNAL_PULL_NOT_ENABLED,
+        .slewRateCtrlSel             = PORT_SLEW_RATE_NOT_AVAILABLE,
+        .pullKeep                    = PORT_PULL_KEEP_DISABLED,
+        .invert                      = PORT_INVERT_DISABLED,
+        .inputBuffer                 = PORT_INPUT_BUFFER_DISABLED,
+        .outputBuffer                = PORT_OUTPUT_BUFFER_ENABLED,
+        .adcInterleaves              = { MUX_MODE_NOT_AVAILABLE, MUX_MODE_NOT_AVAILABLE },
+        .initValue                   = 2u
+    },
+    {
+        .base                        = IP_SIUL2,
+        .pinPortIdx                  = 99u,
+        .mux                         = PORT_MUX_ALT10,
+        .safeMode                    = PORT_SAFE_MODE_DISABLED,
+        .inputFilter                 = PORT_INPUT_FILTER_NOT_AVAILABLE,
+        .driveStrength               = PORT_DRIVE_STRENTGTH_NOT_AVAILABLE,
+        .pullConfig                  = PORT_INTERNAL_PULL_NOT_ENABLED,
+        .slewRateCtrlSel             = PORT_SLEW_RATE_NOT_AVAILABLE,
+        .pullKeep                    = PORT_PULL_KEEP_DISABLED,
+        .invert                      = PORT_INVERT_DISABLED,
+        .inputBuffer                 = PORT_INPUT_BUFFER_DISABLED,
+        .outputBuffer                = PORT_OUTPUT_BUFFER_ENABLED,
+        .adcInterleaves              = { MUX_MODE_NOT_AVAILABLE, MUX_MODE_NOT_AVAILABLE },
+        .initValue                   = 2u
+    },
+    {
+        .base                        = IP_SIUL2,
+        .pinPortIdx                  = 120u,
+        .mux                         = PORT_MUX_ALT11,
+        .safeMode                    = PORT_SAFE_MODE_DISABLED,
+        .inputFilter                 = PORT_INPUT_FILTER_NOT_AVAILABLE,
+        .driveStrength               = PORT_DRIVE_STRENTGTH_NOT_AVAILABLE,
+        .pullConfig                  = PORT_INTERNAL_PULL_NOT_ENABLED,
+        .slewRateCtrlSel             = PORT_SLEW_RATE_NOT_AVAILABLE,
+        .pullKeep                    = PORT_PULL_KEEP_DISABLED,
+        .invert                      = PORT_INVERT_DISABLED,
+        .inputBuffer                 = PORT_INPUT_BUFFER_DISABLED,
+        .outputBuffer                = PORT_OUTPUT_BUFFER_ENABLED,
+        .adcInterleaves              = { MUX_MODE_NOT_AVAILABLE, MUX_MODE_NOT_AVAILABLE },
+        .initValue                   = 2u
+    },
+    {
+        .base                        = IP_SIUL2,
+        .pinPortIdx                  = 2u,
+        .mux                         = PORT_MUX_ALT10,
         .safeMode                    = PORT_SAFE_MODE_DISABLED,
         .inputFilter                 = PORT_INPUT_FILTER_NOT_AVAILABLE,
         .driveStrength               = PORT_DRIVE_STRENTGTH_NOT_AVAILABLE,

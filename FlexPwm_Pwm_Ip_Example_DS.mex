@@ -54,7 +54,22 @@
                   </dependency>
                </dependencies>
                <pins>
-                  <pin peripheral="FlexPWM_0" signal="pwm_0_x, 3" pin_num="J17" pin_signal="PTB14">
+                  <pin peripheral="FlexPWM_0" signal="pwm_0_a, 2" pin_num="F16" pin_signal="PTD2">
+                     <pin_features>
+                        <pin_feature name="direction" value="OUTPUT"/>
+                     </pin_features>
+                  </pin>
+                  <pin peripheral="FlexPWM_0" signal="pwm_0_b, 2" pin_num="F17" pin_signal="PTD3">
+                     <pin_features>
+                        <pin_feature name="direction" value="OUTPUT"/>
+                     </pin_features>
+                  </pin>
+                  <pin peripheral="FlexPWM_0" signal="pwm_0_a, 0" pin_num="D16" pin_signal="PTD24">
+                     <pin_features>
+                        <pin_feature name="direction" value="OUTPUT"/>
+                     </pin_features>
+                  </pin>
+                  <pin peripheral="FlexPWM_0" signal="pwm_0_b, 0" pin_num="D17" pin_signal="PTA2">
                      <pin_features>
                         <pin_feature name="direction" value="OUTPUT"/>
                      </pin_features>
@@ -647,7 +662,7 @@
                                  <setting name="Name" value="PortContainer_0"/>
                                  <array name="PortPin">
                                     <struct name="0">
-                                       <setting name="Name" value="PortPin_1"/>
+                                       <setting name="Name" value="PWM_PortPin_PTD2"/>
                                        <setting name="PortPinPue" value="false"/>
                                        <setting name="PortPinPus" value="false"/>
                                        <setting name="PortPinSafeMode" value="false"/>
@@ -660,7 +675,58 @@
                                        <setting name="PortPinInvertControl" value="false"/>
                                        <setting name="PortPinSiul2Instance" value="SIUL2_0"/>
                                        <setting name="PortPinId" value="1"/>
-                                       <setting name="PortPinPcr" value="46"/>
+                                       <setting name="PortPinPcr" value="98"/>
+                                       <setting name="PortPinInitialMode" value="PORT_GPIO_MODE"/>
+                                    </struct>
+                                    <struct name="1">
+                                       <setting name="Name" value="PWM_PortPin_PTD3"/>
+                                       <setting name="PortPinPue" value="false"/>
+                                       <setting name="PortPinPus" value="false"/>
+                                       <setting name="PortPinSafeMode" value="false"/>
+                                       <setting name="PortPinDse" value="false"/>
+                                       <setting name="PortPinWithReadBack" value="false"/>
+                                       <setting name="PortPinPke" value="false"/>
+                                       <setting name="PortPinIfe" value="false"/>
+                                       <setting name="PortPinDirectionChangeable" value="true"/>
+                                       <setting name="PortPinModeChangeable" value="true"/>
+                                       <setting name="PortPinInvertControl" value="false"/>
+                                       <setting name="PortPinSiul2Instance" value="SIUL2_0"/>
+                                       <setting name="PortPinId" value="2"/>
+                                       <setting name="PortPinPcr" value="99"/>
+                                       <setting name="PortPinInitialMode" value="PORT_GPIO_MODE"/>
+                                    </struct>
+                                    <struct name="2">
+                                       <setting name="Name" value="PWM_PortPin_PTD24"/>
+                                       <setting name="PortPinPue" value="false"/>
+                                       <setting name="PortPinPus" value="false"/>
+                                       <setting name="PortPinSafeMode" value="false"/>
+                                       <setting name="PortPinDse" value="false"/>
+                                       <setting name="PortPinWithReadBack" value="false"/>
+                                       <setting name="PortPinPke" value="false"/>
+                                       <setting name="PortPinIfe" value="false"/>
+                                       <setting name="PortPinDirectionChangeable" value="true"/>
+                                       <setting name="PortPinModeChangeable" value="true"/>
+                                       <setting name="PortPinInvertControl" value="false"/>
+                                       <setting name="PortPinSiul2Instance" value="SIUL2_0"/>
+                                       <setting name="PortPinId" value="3"/>
+                                       <setting name="PortPinPcr" value="120"/>
+                                       <setting name="PortPinInitialMode" value="PORT_GPIO_MODE"/>
+                                    </struct>
+                                    <struct name="3">
+                                       <setting name="Name" value="PWM_PortPin_PTA2"/>
+                                       <setting name="PortPinPue" value="false"/>
+                                       <setting name="PortPinPus" value="false"/>
+                                       <setting name="PortPinSafeMode" value="false"/>
+                                       <setting name="PortPinDse" value="false"/>
+                                       <setting name="PortPinWithReadBack" value="false"/>
+                                       <setting name="PortPinPke" value="false"/>
+                                       <setting name="PortPinIfe" value="false"/>
+                                       <setting name="PortPinDirectionChangeable" value="true"/>
+                                       <setting name="PortPinModeChangeable" value="true"/>
+                                       <setting name="PortPinInvertControl" value="false"/>
+                                       <setting name="PortPinSiul2Instance" value="SIUL2_0"/>
+                                       <setting name="PortPinId" value="4"/>
+                                       <setting name="PortPinPcr" value="2"/>
                                        <setting name="PortPinInitialMode" value="PORT_GPIO_MODE"/>
                                     </struct>
                                  </array>
@@ -672,7 +738,7 @@
                   <instance name="FlexPwm_Ip" uuid="6ecd6f50-9bec-429a-ad99-5b1edb500678" type="FlexPwm_Ip" type_id="FlexPwm_Ip" mode="ip" enabled="true" comment="" custom_name_enabled="false" editing_lock="false">
                      <config_set name="FlexPwm_Ip">
                         <struct name="ConfigTimeSupport">
-                           <setting name="POST_BUILD_VARIANT_USED" value="false"/>
+                           <setting name="POST_BUILD_VARIANT_USED" value="true"/>
                            <setting name="IMPLEMENTATION_CONFIG_VARIANT" value="VARIANT-POST-BUILD"/>
                         </struct>
                         <struct name="PwmGeneral">
@@ -733,9 +799,9 @@
                               <array name="FlexPwmSubModules">
                                  <struct name="0">
                                     <setting name="Name" value="FlexPwmSubModule_0"/>
-                                    <setting name="FlexPwmSubModule" value="SubModule_3"/>
+                                    <setting name="FlexPwmSubModule" value="SubModule_0"/>
                                     <setting name="FlexPwmCapabilities" value="FLEXPWM_IP_EDGE_ALIGNED"/>
-                                    <setting name="FlexPwmPeriod" value="32768"/>
+                                    <setting name="FlexPwmPeriod" value="10000"/>
                                     <setting name="FlexPwmClockSel" value="FLEXPWM_IP_CLKSOURCE_PERIPHERAL_CLK"/>
                                     <setting name="FlexPwmInitControlSrc" value="FLEXPWM_IP_INIT_LOCAL_SYNC"/>
                                     <setting name="ReloadSrcSelect" value="FLEXPWM_IP_LOCAL_RELOAD"/>
@@ -746,7 +812,7 @@
                                     <setting name="HalfCycleReload" value="false"/>
                                     <setting name="ReloadFrequency" value="FLEXPWM_IP_LDFQ_EACH1"/>
                                     <setting name="FlexPwmInitVal" value="0"/>
-                                    <setting name="FlexPwmIndependent" value="FLEXPWM_IP_INDEPENDENT"/>
+                                    <setting name="FlexPwmIndependent" value="FLEXPWM_IP_COMPLEMENTARY"/>
                                     <setting name="FlexPwmPolarityPair" value="FLEXPWM_IP_COMP_SOURCE23"/>
                                     <setting name="FlexPwmDeadTimeCount0" value="0"/>
                                     <setting name="FlexPwmDeadTimeCount1" value="0"/>
@@ -754,10 +820,56 @@
                                     <array name="FlexPwmChannels">
                                        <struct name="0">
                                           <setting name="Name" value="FlexPwmChannel_0"/>
-                                          <setting name="FlexPwmChannel" value="FLEXPWM_IP_PWMX"/>
+                                          <setting name="FlexPwmChannel" value="FLEXPWM_IP_PWMA"/>
                                           <setting name="FlexPwmChPolarity" value="FLEXPWM_IP_POL_HIGH"/>
-                                          <setting name="FlexPwmChDutyCycle" value="0"/>
+                                          <setting name="FlexPwmChDutyCycle" value="5000"/>
                                           <setting name="FlexPwmPhaseShiftTicks" value="0"/>
+                                          <setting name="FlexPwm_CTU_Trigger" value="FLEXPWM_IP_NO_TRIGGER"/>
+                                          <setting name="FlexPwmFaultOutputState" value="FLEXPWM_IP_OUTPUT_STATE_LOGIC_0"/>
+                                          <setting name="FlexPwmChInterrupt" value="FLEXPWM_IP_DISABLE_INT"/>
+                                          <setting name="FlexPwmChMaskOutput" value="false"/>
+                                          <struct name="FlexPwmChIrqCallback">
+                                             <setting name="Name" value="FlexPwmChIrqCallback"/>
+                                             <setting name="FlexPwmChIrqFunctionCallback" value="NULL_PTR"/>
+                                             <setting name="FlexPwmChIrqParameterCallback" value="NULL_PTR"/>
+                                          </struct>
+                                          <struct name="FlexPwmChannelFaultSettings">
+                                             <setting name="Name" value="FlexPwmChannelFaultSettings"/>
+                                             <setting name="FlexPwmDisableOutputOnFault0" value="false"/>
+                                             <setting name="FlexPwmDisableOutputOnFault1" value="false"/>
+                                             <setting name="FlexPwmDisableOutputOnFault2" value="false"/>
+                                             <setting name="FlexPwmDisableOutputOnFault3" value="false"/>
+                                          </struct>
+                                       </struct>
+                                    </array>
+                                 </struct>
+                                 <struct name="1">
+                                    <setting name="Name" value="FlexPwmSubModule_2"/>
+                                    <setting name="FlexPwmSubModule" value="SubModule_2"/>
+                                    <setting name="FlexPwmCapabilities" value="FLEXPWM_IP_PHASE_SHIFTED"/>
+                                    <setting name="FlexPwmPeriod" value="10000"/>
+                                    <setting name="FlexPwmClockSel" value="FLEXPWM_IP_CLKSOURCE_PERIPHERAL_CLK"/>
+                                    <setting name="FlexPwmInitControlSrc" value="FLEXPWM_IP_INIT_MASTER_RELOAD"/>
+                                    <setting name="ReloadSrcSelect" value="FLEXPWM_IP_LOCAL_RELOAD"/>
+                                    <setting name="ForceOutSelect" value="FLEXPWM_IP_LOCAL_FORCE"/>
+                                    <setting name="FlexPwmPrescaler" value="FLEXPWM_IP_DIV1"/>
+                                    <setting name="FlexPwmPrescaler_Alternate" value="FLEXPWM_IP_DIV1"/>
+                                    <setting name="FullCycleReload" value="true"/>
+                                    <setting name="HalfCycleReload" value="false"/>
+                                    <setting name="ReloadFrequency" value="FLEXPWM_IP_LDFQ_EACH1"/>
+                                    <setting name="FlexPwmInitVal" value="0"/>
+                                    <setting name="FlexPwmIndependent" value="FLEXPWM_IP_COMPLEMENTARY"/>
+                                    <setting name="FlexPwmPolarityPair" value="FLEXPWM_IP_COMP_SOURCE23"/>
+                                    <setting name="FlexPwmDeadTimeCount0" value="0"/>
+                                    <setting name="FlexPwmDeadTimeCount1" value="0"/>
+                                    <setting name="FlexPwmDebugEnable" value="true"/>
+                                    <array name="FlexPwmChannels">
+                                       <struct name="0">
+                                          <setting name="Name" value="FlexPwmChannel_0"/>
+                                          <setting name="FlexPwmChannel" value="FLEXPWM_IP_PWMA"/>
+                                          <setting name="FlexPwmChPolarity" value="FLEXPWM_IP_POL_HIGH"/>
+                                          <setting name="FlexPwmChDutyCycle" value="5000"/>
+                                          <setting name="FlexPwmPhaseShiftTicks" value="5000"/>
                                           <setting name="FlexPwm_CTU_Trigger" value="FLEXPWM_IP_NO_TRIGGER"/>
                                           <setting name="FlexPwmFaultOutputState" value="FLEXPWM_IP_OUTPUT_STATE_LOGIC_0"/>
                                           <setting name="FlexPwmChInterrupt" value="FLEXPWM_IP_DISABLE_INT"/>

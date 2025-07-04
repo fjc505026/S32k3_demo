@@ -80,9 +80,13 @@ extern "C"{
 *                                          CONSTANTS
 ==================================================================================================*/
 /* FlexPwm submodule index for configuration */
-#define FLEXPWM_IP_SUB_VS_0_I0_SUB3_CFG               (3U)
-/* FlexPwm instance index for configuration PWMX */
-        #define FLEXPWM_IP_INS_VS_0_I0_SUB3_PWMX_CFG      (0U)
+#define FLEXPWM_IP_SUB_VS_0_I0_SUB0_CFG               (0U)
+/* FlexPwm instance index for configuration PWMA */
+        #define FLEXPWM_IP_INS_VS_0_I0_SUB0_PWMA_CFG      (0U)
+/* FlexPwm submodule index for configuration */
+#define FLEXPWM_IP_SUB_VS_0_I0_SUB2_CFG               (2U)
+/* FlexPwm instance index for configuration PWMA */
+        #define FLEXPWM_IP_INS_VS_0_I0_SUB2_PWMA_CFG      (0U)
 
 /*==================================================================================================
 *                                      DEFINES AND MACROS
@@ -106,8 +110,10 @@ extern "C"{
 /*================================================================================================*/
 /* FlexPwm instance 0 User configuration structure */
 extern const FlexPwm_Ip_InstanceCfgTypes FlexPwm_Ip_VS_0_InstanceCfg_I0;
-/* FlexPwm instance 0 submodule 3 channel PWMX configuration */
-extern const FlexPwm_Ip_ChannelCfgTypes FlexPwm_Ip_VS_0_ChannelCfg_I0_S3_PWMX;
+/* FlexPwm instance 0 submodule 0 channel PWMA configuration */
+extern const FlexPwm_Ip_ChannelCfgTypes FlexPwm_Ip_VS_0_ChannelCfg_I0_S0_PWMA;
+/* FlexPwm instance 0 submodule 2 channel PWMA configuration */
+extern const FlexPwm_Ip_ChannelCfgTypes FlexPwm_Ip_VS_0_ChannelCfg_I0_S2_PWMA;
 
 #define PWM_STOP_SEC_CONFIG_DATA_UNSPECIFIED
 #include "Pwm_MemMap.h"
