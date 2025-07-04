@@ -187,7 +187,7 @@ extern "C"{
 /**
 * @brief            Clock ip supports clock frequency.
 */
-#define CLOCK_IP_GET_FREQUENCY_API                (STD_OFF)
+#define CLOCK_IP_GET_FREQUENCY_API                (STD_ON)
 
 /**
 * @brief            Clock ip supports ram wait states.

@@ -103,12 +103,16 @@ extern "C"{
 /*
  * TEXT BELOW IS USED AS SETTING FOR TOOLS *************************************
 PortContainer_0_VS_0:
-- options: {callFromInitBoot: 'true', coreID: M7_0_0}
+- options: {callFromInitBoot: 'true', coreID: M7_0_0, fullInit: 'true'}
 - pin_list:
-  - {pin_num: F16, peripheral: FlexPWM_0, signal: 'pwm_0_a, 2', pin_signal: PTD2, direction: OUTPUT}
-  - {pin_num: F17, peripheral: FlexPWM_0, signal: 'pwm_0_b, 2', pin_signal: PTD3, direction: OUTPUT}
-  - {pin_num: D16, peripheral: FlexPWM_0, signal: 'pwm_0_a, 0', pin_signal: PTD24, direction: OUTPUT}
-  - {pin_num: D17, peripheral: FlexPWM_0, signal: 'pwm_0_b, 0', pin_signal: PTA2, direction: OUTPUT}
+  - {pin_num: F16, peripheral: FlexPWM_0, signal: 'pwm_0_a, 2', pin_signal: PTD2, direction: OUTPUT, safeMode: outputOff, pullSelect: pullDown, pullEnable: disabled,
+    outputInversionSelect: doNotInvert, inputBufferEnable: disabled, padKeepingEnable: disabled, outputBufferEnable: enabled, InitValue: state_0}
+  - {pin_num: F17, peripheral: FlexPWM_0, signal: 'pwm_0_b, 2', pin_signal: PTD3, direction: OUTPUT, safeMode: outputOff, pullSelect: pullDown, pullEnable: disabled,
+    outputInversionSelect: doNotInvert, inputBufferEnable: disabled, padKeepingEnable: disabled, outputBufferEnable: enabled, InitValue: state_0}
+  - {pin_num: D16, peripheral: FlexPWM_0, signal: 'pwm_0_a, 0', pin_signal: PTD24, direction: OUTPUT, safeMode: outputOff, pullSelect: pullDown, pullEnable: disabled,
+    outputInversionSelect: doNotInvert, inputBufferEnable: disabled, padKeepingEnable: disabled, outputBufferEnable: enabled, InitValue: state_0}
+  - {pin_num: D17, peripheral: FlexPWM_0, signal: 'pwm_0_b, 0', pin_signal: PTA2, direction: OUTPUT, safeMode: outputOff, pullSelect: pullDown, pullEnable: disabled,
+    outputInversionSelect: doNotInvert, inputBufferEnable: disabled, padKeepingEnable: disabled, outputBufferEnable: enabled, InitValue: state_0}
  * BE CAREFUL MODIFYING THIS COMMENT - IT IS YAML SETTINGS FOR TOOLS ***********
  */
 /* clang-format on */

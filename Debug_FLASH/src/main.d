@@ -52,7 +52,11 @@ src/main.o: ../src/main.c ../RTD/include/Clock_Ip.h \
  C\:/NXP/S32DS.3.5/S32DS/software/PlatformSDK_S32K3/RTD/BaseNXP_TS_T40D34M50I0R0/include/OsIf_Internal.h \
  C\:/NXP/work/FlexPWM_Pwm_Ip_Example_S32K396/generate/include/OsIf_Cfg.h \
  C\:/NXP/work/FlexPWM_Pwm_Ip_Example_S32K396/generate/include/OsIf_ArchCfg.h \
- C\:/NXP/S32DS.3.5/S32DS/software/PlatformSDK_S32K3/RTD/BaseNXP_TS_T40D34M50I0R0/header/S32K39_MSCM.h
+ C\:/NXP/S32DS.3.5/S32DS/software/PlatformSDK_S32K3/RTD/BaseNXP_TS_T40D34M50I0R0/header/S32K39_MSCM.h \
+ ../RTD/include/Clock_Ip_Private.h ../RTD/include/Clock_Ip.h \
+ ../RTD/include/Clock_Ip_Specific.h \
+ C\:/NXP/S32DS.3.5/S32DS/software/PlatformSDK_S32K3/RTD/BaseNXP_TS_T40D34M50I0R0/include/Mcal.h \
+ ../RTD/include/Clock_Ip_Derivative_006.h
 ../RTD/include/Clock_Ip.h:
 ../RTD/include/Clock_Ip_Types.h:
 C\:/NXP/S32DS.3.5/S32DS/software/PlatformSDK_S32K3/RTD/BaseNXP_TS_T40D34M50I0R0/include/Std_Types.h:
@@ -109,3 +113,8 @@ C\:/NXP/S32DS.3.5/S32DS/software/PlatformSDK_S32K3/RTD/BaseNXP_TS_T40D34M50I0R0/
 C\:/NXP/work/FlexPWM_Pwm_Ip_Example_S32K396/generate/include/OsIf_Cfg.h:
 C\:/NXP/work/FlexPWM_Pwm_Ip_Example_S32K396/generate/include/OsIf_ArchCfg.h:
 C\:/NXP/S32DS.3.5/S32DS/software/PlatformSDK_S32K3/RTD/BaseNXP_TS_T40D34M50I0R0/header/S32K39_MSCM.h:
+../RTD/include/Clock_Ip_Private.h:
+../RTD/include/Clock_Ip.h:
+../RTD/include/Clock_Ip_Specific.h:
+C\:/NXP/S32DS.3.5/S32DS/software/PlatformSDK_S32K3/RTD/BaseNXP_TS_T40D34M50I0R0/include/Mcal.h:
+../RTD/include/Clock_Ip_Derivative_006.h:

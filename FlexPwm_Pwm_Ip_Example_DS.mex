@@ -35,6 +35,7 @@
                <options>
                   <callFromInitBoot>true</callFromInitBoot>
                   <coreID>M7_0_0</coreID>
+                  <fullInit>true</fullInit>
                </options>
                <dependencies>
                   <dependency resourceType="SWComponent" resourceId="platform.driver.pins" description="Pins initialization requires the PINS Driver in the project." problem_level="2" source="Pins:PortContainer_0_VS_0">
@@ -57,21 +58,53 @@
                   <pin peripheral="FlexPWM_0" signal="pwm_0_a, 2" pin_num="F16" pin_signal="PTD2">
                      <pin_features>
                         <pin_feature name="direction" value="OUTPUT"/>
+                        <pin_feature name="safeMode" value="outputOff"/>
+                        <pin_feature name="pullSelect" value="pullDown"/>
+                        <pin_feature name="pullEnable" value="disabled"/>
+                        <pin_feature name="outputInversionSelect" value="doNotInvert"/>
+                        <pin_feature name="inputBufferEnable" value="disabled"/>
+                        <pin_feature name="padKeepingEnable" value="disabled"/>
+                        <pin_feature name="outputBufferEnable" value="enabled"/>
+                        <pin_feature name="InitValue" value="state_0"/>
                      </pin_features>
                   </pin>
                   <pin peripheral="FlexPWM_0" signal="pwm_0_b, 2" pin_num="F17" pin_signal="PTD3">
                      <pin_features>
                         <pin_feature name="direction" value="OUTPUT"/>
+                        <pin_feature name="safeMode" value="outputOff"/>
+                        <pin_feature name="pullSelect" value="pullDown"/>
+                        <pin_feature name="pullEnable" value="disabled"/>
+                        <pin_feature name="outputInversionSelect" value="doNotInvert"/>
+                        <pin_feature name="inputBufferEnable" value="disabled"/>
+                        <pin_feature name="padKeepingEnable" value="disabled"/>
+                        <pin_feature name="outputBufferEnable" value="enabled"/>
+                        <pin_feature name="InitValue" value="state_0"/>
                      </pin_features>
                   </pin>
                   <pin peripheral="FlexPWM_0" signal="pwm_0_a, 0" pin_num="D16" pin_signal="PTD24">
                      <pin_features>
                         <pin_feature name="direction" value="OUTPUT"/>
+                        <pin_feature name="safeMode" value="outputOff"/>
+                        <pin_feature name="pullSelect" value="pullDown"/>
+                        <pin_feature name="pullEnable" value="disabled"/>
+                        <pin_feature name="outputInversionSelect" value="doNotInvert"/>
+                        <pin_feature name="inputBufferEnable" value="disabled"/>
+                        <pin_feature name="padKeepingEnable" value="disabled"/>
+                        <pin_feature name="outputBufferEnable" value="enabled"/>
+                        <pin_feature name="InitValue" value="state_0"/>
                      </pin_features>
                   </pin>
                   <pin peripheral="FlexPWM_0" signal="pwm_0_b, 0" pin_num="D17" pin_signal="PTA2">
                      <pin_features>
                         <pin_feature name="direction" value="OUTPUT"/>
+                        <pin_feature name="safeMode" value="outputOff"/>
+                        <pin_feature name="pullSelect" value="pullDown"/>
+                        <pin_feature name="pullEnable" value="disabled"/>
+                        <pin_feature name="outputInversionSelect" value="doNotInvert"/>
+                        <pin_feature name="inputBufferEnable" value="disabled"/>
+                        <pin_feature name="padKeepingEnable" value="disabled"/>
+                        <pin_feature name="outputBufferEnable" value="enabled"/>
+                        <pin_feature name="InitValue" value="state_0"/>
                      </pin_features>
                   </pin>
                </pins>
@@ -393,6 +426,7 @@
                   <clock_output id="WKPU0_CLK.outFreq" value="40 MHz" locked="false" accuracy=""/>
                </clock_outputs>
                <clock_settings>
+                  <setting id="ClockGetFrequencyAPI" value="Enabled" locked="false"/>
                   <setting id="CORE_MFD.scale" value="48" locked="true"/>
                   <setting id="CORE_PLLODIV_0_DE" value="Enabled" locked="false"/>
                   <setting id="CORE_PLLODIV_1_DE" value="Enabled" locked="false"/>
@@ -801,7 +835,7 @@
                                     <setting name="Name" value="FlexPwmSubModule_0"/>
                                     <setting name="FlexPwmSubModule" value="SubModule_0"/>
                                     <setting name="FlexPwmCapabilities" value="FLEXPWM_IP_EDGE_ALIGNED"/>
-                                    <setting name="FlexPwmPeriod" value="10000"/>
+                                    <setting name="FlexPwmPeriod" value="1600"/>
                                     <setting name="FlexPwmClockSel" value="FLEXPWM_IP_CLKSOURCE_PERIPHERAL_CLK"/>
                                     <setting name="FlexPwmInitControlSrc" value="FLEXPWM_IP_INIT_LOCAL_SYNC"/>
                                     <setting name="ReloadSrcSelect" value="FLEXPWM_IP_LOCAL_RELOAD"/>
@@ -822,7 +856,7 @@
                                           <setting name="Name" value="FlexPwmChannel_0"/>
                                           <setting name="FlexPwmChannel" value="FLEXPWM_IP_PWMA"/>
                                           <setting name="FlexPwmChPolarity" value="FLEXPWM_IP_POL_HIGH"/>
-                                          <setting name="FlexPwmChDutyCycle" value="5000"/>
+                                          <setting name="FlexPwmChDutyCycle" value="800"/>
                                           <setting name="FlexPwmPhaseShiftTicks" value="0"/>
                                           <setting name="FlexPwm_CTU_Trigger" value="FLEXPWM_IP_NO_TRIGGER"/>
                                           <setting name="FlexPwmFaultOutputState" value="FLEXPWM_IP_OUTPUT_STATE_LOGIC_0"/>
@@ -847,9 +881,9 @@
                                     <setting name="Name" value="FlexPwmSubModule_2"/>
                                     <setting name="FlexPwmSubModule" value="SubModule_2"/>
                                     <setting name="FlexPwmCapabilities" value="FLEXPWM_IP_PHASE_SHIFTED"/>
-                                    <setting name="FlexPwmPeriod" value="10000"/>
+                                    <setting name="FlexPwmPeriod" value="1600"/>
                                     <setting name="FlexPwmClockSel" value="FLEXPWM_IP_CLKSOURCE_PERIPHERAL_CLK"/>
-                                    <setting name="FlexPwmInitControlSrc" value="FLEXPWM_IP_INIT_MASTER_RELOAD"/>
+                                    <setting name="FlexPwmInitControlSrc" value="FLEXPWM_IP_INIT_MASTER_SYNC"/>
                                     <setting name="ReloadSrcSelect" value="FLEXPWM_IP_LOCAL_RELOAD"/>
                                     <setting name="ForceOutSelect" value="FLEXPWM_IP_LOCAL_FORCE"/>
                                     <setting name="FlexPwmPrescaler" value="FLEXPWM_IP_DIV1"/>
@@ -868,8 +902,8 @@
                                           <setting name="Name" value="FlexPwmChannel_0"/>
                                           <setting name="FlexPwmChannel" value="FLEXPWM_IP_PWMA"/>
                                           <setting name="FlexPwmChPolarity" value="FLEXPWM_IP_POL_HIGH"/>
-                                          <setting name="FlexPwmChDutyCycle" value="5000"/>
-                                          <setting name="FlexPwmPhaseShiftTicks" value="5000"/>
+                                          <setting name="FlexPwmChDutyCycle" value="800"/>
+                                          <setting name="FlexPwmPhaseShiftTicks" value="800"/>
                                           <setting name="FlexPwm_CTU_Trigger" value="FLEXPWM_IP_NO_TRIGGER"/>
                                           <setting name="FlexPwmFaultOutputState" value="FLEXPWM_IP_OUTPUT_STATE_LOGIC_0"/>
                                           <setting name="FlexPwmChInterrupt" value="FLEXPWM_IP_DISABLE_INT"/>

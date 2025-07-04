@@ -126,7 +126,7 @@ const FlexPwm_Ip_ChannelCfgTypes FlexPwm_Ip_VS_0_ChannelCfg_I0_S0_PWMA =
 {
     /* ChannelId */               FLEXPWM_IP_PWMA,
     /* Polarity */                FLEXPWM_IP_POL_HIGH,
-    /* DutyCycle */               5000U,
+    /* DutyCycle */               800U,
     /* PhaseShiftTicks */         0U,
     /* OutputTrig */              FLEXPWM_IP_NO_TRIGGER,
     /* FaultState */              FLEXPWM_IP_OUTPUT_STATE_LOGIC_0,
@@ -165,7 +165,7 @@ static const FlexPwm_Ip_SubModuleCfgTypes FlexPwm_Ip_VS_0_SubModCfg_I0_S0 =
     /* DebugModeEnable */          1U,
     /* ChannelCfgArray */          FlexPwm_Ip_VS_0_ChannelCfg_I0_S0_Array,
     /* NumChannelCfg */            1U,
-    /* Period */                   10000U
+    /* Period */                   1600U
 };
 
 /* FlexPwm instance 0 subModule 2 channel PWMA configuration */
@@ -173,8 +173,8 @@ const FlexPwm_Ip_ChannelCfgTypes FlexPwm_Ip_VS_0_ChannelCfg_I0_S2_PWMA =
 {
     /* ChannelId */               FLEXPWM_IP_PWMA,
     /* Polarity */                FLEXPWM_IP_POL_HIGH,
-    /* DutyCycle */               5000U,
-    /* PhaseShiftTicks */         5000U,
+    /* DutyCycle */               800U,
+    /* PhaseShiftTicks */         800U,
     /* OutputTrig */              FLEXPWM_IP_NO_TRIGGER,
     /* FaultState */              FLEXPWM_IP_OUTPUT_STATE_LOGIC_0,
     /* DisOutputFault */          0U,
@@ -196,7 +196,7 @@ static const FlexPwm_Ip_SubModuleCfgTypes FlexPwm_Ip_VS_0_SubModCfg_I0_S2 =
 {
     /* SubModuleId */              2U,
     /* ClkSource */                FLEXPWM_IP_CLKSOURCE_PERIPHERAL_CLK,
-    /* InitControl */              FLEXPWM_IP_INIT_MASTER_RELOAD,
+    /* InitControl */              FLEXPWM_IP_INIT_MASTER_SYNC,
     /* Prescaler */                FLEXPWM_IP_DIV1,
     /* PrescalerAlt */             FLEXPWM_IP_DIV1,
     /* ReloadSrc */                FLEXPWM_IP_LOCAL_RELOAD,
@@ -212,7 +212,7 @@ static const FlexPwm_Ip_SubModuleCfgTypes FlexPwm_Ip_VS_0_SubModCfg_I0_S2 =
     /* DebugModeEnable */          1U,
     /* ChannelCfgArray */          FlexPwm_Ip_VS_0_ChannelCfg_I0_S2_Array,
     /* NumChannelCfg */            1U,
-    /* Period */                   10000U
+    /* Period */                   1600U
 };
 
 /* FlexPwm instance 0 SubModule configuration array */

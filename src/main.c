@@ -27,7 +27,7 @@ extern "C" {
 #include "Clock_Ip.h"
 #include "FlexPwm_Ip.h"
 #include "Siul2_Port_Ip.h"
-
+#include "Clock_Ip_Private.h"
 /*==================================================================================================
 *                          LOCAL TYPEDEFS (STRUCTURES, UNIONS, ENUMS)
 ==================================================================================================*/
@@ -36,10 +36,13 @@ extern "C" {
 /*==================================================================================================
 *                                       LOCAL MACROS
 ==================================================================================================*/
-#define NUM_BLINK_LED     (uint32)10U
-#define DELAY_TIMER       (uint32)5000000U
+#define FULL_DUTY_CYCLE_CNT    ((uint16)1600U) // 100Khz == 160Mhz/1600
+
+
+#define DELAY_TIMER       (uint32)5000000U // 500MS
 #define INSTANCE_0        (uint8)0U
-#define SubModule_3       (uint8)3U
+#define SubModule_0       (uint8)0U
+#define SubModule_2       (uint8)2U
 /*==================================================================================================
 *                                      LOCAL CONSTANTS
 ==================================================================================================*/
@@ -88,7 +91,6 @@ void TestDelay(uint32 delay)
 */
 int main (void)
 {
-    uint8 num_blink = 0U;
     /* Initialize clock */
     Clock_Ip_Init(&Clock_Ip_aClockConfig[0U]);
 
@@ -96,34 +98,44 @@ int main (void)
     Siul2_Port_Ip_Init(NUM_OF_CONFIGURED_PINS_PortContainer_0_VS_0, g_pin_mux_InitConfigArr_PortContainer_0_VS_0);
 
     /* Initialize FlexPwm_Ip driver */
-    FlexPwm_Ip_Init(FLEXPWM_IP_INS_VS_0_I0_SUB3_PWMX_CFG, &FlexPwm_Ip_VS_0_InstanceCfg_I0);
+    FlexPwm_Ip_Init(FLEXPWM_IP_SUB_VS_0_I0_SUB0_CFG, &FlexPwm_Ip_VS_0_InstanceCfg_I0);
 
     /* Setup new duty cycle to the pin*/
-    FlexPwm_Ip_ClearLoadValue(INSTANCE_0, 1U << SubModule_3);
-    FlexPwm_Ip_UpdateDutyCycle(INSTANCE_0, SubModule_3, FLEXPWM_IP_PWMX, 0x200U);
-    FlexPwm_Ip_LoadValue(INSTANCE_0, 1U << SubModule_3, TRUE);
+    FlexPwm_Ip_ClearLoadValue(INSTANCE_0, 1U << SubModule_0);
+    FlexPwm_Ip_UpdateDutyCycle(INSTANCE_0, SubModule_0, FLEXPWM_IP_PWMA, (uint16) ( 0.4f*FULL_DUTY_CYCLE_CNT ));
+    FlexPwm_Ip_LoadValue(INSTANCE_0, 1U << SubModule_0, TRUE);
 
 
     /* Setup new duty cycle to the pin*/
-    FlexPwm_Ip_ClearLoadValue(INSTANCE_0, 1U << SubModule_3);
-    FlexPwm_Ip_UpdateDutyCycle(INSTANCE_0, SubModule_3, FLEXPWM_IP_PWMX, 0x7000U);
-    FlexPwm_Ip_LoadValue(INSTANCE_0, 1U << SubModule_3, TRUE);
+    FlexPwm_Ip_ClearLoadValue(INSTANCE_0, 1U << SubModule_2);
+    FlexPwm_Ip_UpdateDutyCycle(INSTANCE_0, SubModule_2, FLEXPWM_IP_PWMA, (uint16) ( 0.4f*FULL_DUTY_CYCLE_CNT ));
+    FlexPwm_Ip_LoadValue(INSTANCE_0, 1U << SubModule_2, TRUE);
 
-    /* Using duty 0% and 100% to blink led */
-    while(num_blink < NUM_BLINK_LED)
+
+    // static volatile uint32 pwm_clk =0U;
+    // pwm_clk = Clock_Ip_GetFreq(EFLEX_PWM0_CLK);
+
+    static volatile uint8 tempcnt =0U;
+    while( TRUE)
     {
-        /* Led off when duty cycle is 100% */
-        FlexPwm_Ip_ClearLoadValue(INSTANCE_0, 1U << SubModule_3);
-        FlexPwm_Ip_UpdateDutyCycle(INSTANCE_0, SubModule_3, FLEXPWM_IP_PWMX, 0x8000U);
-        FlexPwm_Ip_LoadValue(INSTANCE_0, 1U << SubModule_3, TRUE);
+        FlexPwm_Ip_ClearLoadValue(INSTANCE_0, 1U << SubModule_0);
+        FlexPwm_Ip_UpdateDutyCycle(INSTANCE_0, SubModule_0, FLEXPWM_IP_PWMA, (uint16) ( 0.1f * tempcnt*FULL_DUTY_CYCLE_CNT ));
+        FlexPwm_Ip_LoadValue(INSTANCE_0, 1U << SubModule_0, TRUE);
+
+ 
+        FlexPwm_Ip_ClearLoadValue(INSTANCE_0, 1U << SubModule_2);
+        FlexPwm_Ip_UpdateDutyCycle(INSTANCE_0, SubModule_2, FLEXPWM_IP_PWMA, (uint16) ( 0.1f * tempcnt*FULL_DUTY_CYCLE_CNT ));
+        FlexPwm_Ip_LoadValue(INSTANCE_0, 1U << SubModule_2, TRUE);
         TestDelay(DELAY_TIMER);
 
-        /* Led on when duty cycle is 0% */
-        FlexPwm_Ip_ClearLoadValue(INSTANCE_0, 1U << SubModule_3);
-        FlexPwm_Ip_UpdateDutyCycle(INSTANCE_0, SubModule_3, FLEXPWM_IP_PWMX, 0U);
-        FlexPwm_Ip_LoadValue(INSTANCE_0, 1U << SubModule_3, TRUE);
-        TestDelay(DELAY_TIMER);
-        num_blink++;
+
+        tempcnt++;
+
+        if ( tempcnt == 11)
+        {
+           tempcnt = 0U;
+        }
+        
     }
 
     /* De-Initialize FlexPwm_Ip driver */

@@ -201,6 +201,7 @@ outputs:
 - {id: TSENSE0_CLK.outFreq, value: 40 MHz}
 - {id: WKPU0_CLK.outFreq, value: 40 MHz}
 settings:
+- {id: ClockGetFrequencyAPI, value: Enabled}
 - {id: CORE_MFD.scale, value: '48', locked: true}
 - {id: CORE_PLLODIV_0_DE, value: Enabled}
 - {id: CORE_PLLODIV_1_DE, value: Enabled}
