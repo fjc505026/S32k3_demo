@@ -307,7 +307,7 @@
                   <clock_output id="FLEXCAN5_CLK.outFreq" value="16 MHz" locked="false" accuracy=""/>
                   <clock_output id="FLEXCANA_CLK.outFreq" value="16 MHz" locked="false" accuracy=""/>
                   <clock_output id="FLEXCANB_CLK.outFreq" value="16 MHz" locked="false" accuracy=""/>
-                  <clock_output id="FLEXIO0_CLK.outFreq" value="80 MHz" locked="false" accuracy=""/>
+                  <clock_output id="FLEXIO0_CLK.outFreq" value="160 MHz" locked="false" accuracy=""/>
                   <clock_output id="FXOSCOUT.outFreq" value="40 MHz" locked="false" accuracy=""/>
                   <clock_output id="HSE_CLK.outFreq" value="80 MHz" locked="false" accuracy=""/>
                   <clock_output id="IGF0_CLK.outFreq" value="160 MHz" locked="false" accuracy=""/>
