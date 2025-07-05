@@ -28,6 +28,9 @@ extern "C" {
 #include "FlexPwm_Ip.h"
 #include "Siul2_Port_Ip.h"
 #include "Clock_Ip_Private.h"
+#include "Adc_Sar_Ip.h"
+#include "Adc_Sar_Ip_Irq.h"
+#include "IntCtrl_Ip.h"
 /*==================================================================================================
 *                          LOCAL TYPEDEFS (STRUCTURES, UNIONS, ENUMS)
 ==================================================================================================*/
@@ -80,6 +83,20 @@ void TestDelay(uint32 delay)
     DelayTimer = 0U;
 }
 
+volatile boolean notif_triggered = FALSE;
+
+volatile uint16 data;
+volatile float voltage;
+
+void AdcEndOfChainNotif(void)
+{
+    notif_triggered = TRUE;
+    data = Adc_Sar_Ip_GetConvData(ADCHWUNIT_0_VS_0_INSTANCE, 48U);
+
+    voltage =  data* 5000 / 4095;
+}
+
+
 /*==================================================================================================
 *                                       GLOBAL FUNCTIONS
 ==================================================================================================*/
@@ -91,6 +108,8 @@ void TestDelay(uint32 delay)
 */
 int main (void)
 {
+    StatusType status;
+
     /* Initialize clock */
     Clock_Ip_Init(&Clock_Ip_aClockConfig[0U]);
 
@@ -110,10 +129,35 @@ int main (void)
     FlexPwm_Ip_ClearLoadValue(INSTANCE_0, 1U << SubModule_2);
     FlexPwm_Ip_UpdateDutyCycle(INSTANCE_0, SubModule_2, FLEXPWM_IP_PWMA, (uint16) ( 0.4f*FULL_DUTY_CYCLE_CNT ));
     FlexPwm_Ip_LoadValue(INSTANCE_0, 1U << SubModule_2, TRUE);
+    
+
+    // ADC init
+    status = (StatusType) Adc_Sar_Ip_Init(ADCHWUNIT_0_VS_0_INSTANCE, &AdcHwUnit_0_VS_0);
+    while (status != E_OK);
+
+    IntCtrl_Ip_InstallHandler(ADC0_IRQn, Adc_Sar_0_Isr, NULL_PTR);
+    IntCtrl_Ip_EnableIrq(ADC0_IRQn);
+
+    /* Call Calibration function multiple times, to mitigate instability of board source */
+    for( uint8 Index = 0; Index <= 5; Index++)
+    {
+        status = (StatusType) Adc_Sar_Ip_DoCalibration(ADCHWUNIT_0_VS_0_INSTANCE);
+        if(status == E_OK)
+        {
+            break;
+        }
+    }
 
 
-    // static volatile uint32 pwm_clk =0U;
-    // pwm_clk = Clock_Ip_GetFreq(EFLEX_PWM0_CLK);
+
+    Adc_Sar_Ip_EnableNotifications(ADCHWUNIT_0_VS_0_INSTANCE, ADC_SAR_IP_NOTIF_FLAG_NORMAL_ENDCHAIN);
+
+    /* Start a SW triggered normal conversion on ADC_SAR */
+    Adc_Sar_Ip_StartConversion(ADCHWUNIT_0_VS_0_INSTANCE, ADC_SAR_IP_CONV_CHAIN_NORMAL);
+
+    /* Wait for the notification to be triggered and read the data */
+    while (notif_triggered != TRUE);
+    notif_triggered = FALSE;
 
     static volatile uint8 tempcnt =0U;
     while( TRUE)
@@ -127,6 +171,7 @@ int main (void)
         FlexPwm_Ip_UpdateDutyCycle(INSTANCE_0, SubModule_2, FLEXPWM_IP_PWMA, (uint16) ( 0.1f * tempcnt*FULL_DUTY_CYCLE_CNT ));
         FlexPwm_Ip_LoadValue(INSTANCE_0, 1U << SubModule_2, TRUE);
         TestDelay(DELAY_TIMER);
+        Adc_Sar_Ip_StartConversion(ADCHWUNIT_0_VS_0_INSTANCE, ADC_SAR_IP_CONV_CHAIN_NORMAL);
 
 
         tempcnt++;

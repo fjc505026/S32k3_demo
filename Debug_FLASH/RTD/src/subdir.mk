@@ -4,6 +4,8 @@
 
 # Add inputs and outputs from these tool invocations to the build variables 
 C_SRCS += \
+../RTD/src/Adc_Sar_Ip.c \
+../RTD/src/Adc_Sar_Ip_Irq.c \
 ../RTD/src/Clock_Ip.c \
 ../RTD/src/Clock_Ip_Data.c \
 ../RTD/src/Clock_Ip_Divider.c \
@@ -23,11 +25,13 @@ C_SRCS += \
 ../RTD/src/Det_stub.c \
 ../RTD/src/FlexPwm_Ip.c \
 ../RTD/src/FlexPwm_Ip_Irq.c \
+../RTD/src/IntCtrl_Ip.c \
 ../RTD/src/OsIf_Interrupts.c \
 ../RTD/src/OsIf_Timer.c \
 ../RTD/src/OsIf_Timer_System.c \
 ../RTD/src/OsIf_Timer_System_Internal_Systick.c \
 ../RTD/src/Osif_Software_Semaphore.c \
+../RTD/src/SchM_Adc.c \
 ../RTD/src/SchM_Mcu.c \
 ../RTD/src/SchM_Port.c \
 ../RTD/src/SchM_Pwm.c \
@@ -35,6 +39,8 @@ C_SRCS += \
 ../RTD/src/Tspc_Port_Ip.c 
 
 OBJS += \
+./RTD/src/Adc_Sar_Ip.o \
+./RTD/src/Adc_Sar_Ip_Irq.o \
 ./RTD/src/Clock_Ip.o \
 ./RTD/src/Clock_Ip_Data.o \
 ./RTD/src/Clock_Ip_Divider.o \
@@ -54,11 +60,13 @@ OBJS += \
 ./RTD/src/Det_stub.o \
 ./RTD/src/FlexPwm_Ip.o \
 ./RTD/src/FlexPwm_Ip_Irq.o \
+./RTD/src/IntCtrl_Ip.o \
 ./RTD/src/OsIf_Interrupts.o \
 ./RTD/src/OsIf_Timer.o \
 ./RTD/src/OsIf_Timer_System.o \
 ./RTD/src/OsIf_Timer_System_Internal_Systick.o \
 ./RTD/src/Osif_Software_Semaphore.o \
+./RTD/src/SchM_Adc.o \
 ./RTD/src/SchM_Mcu.o \
 ./RTD/src/SchM_Port.o \
 ./RTD/src/SchM_Pwm.o \
@@ -66,6 +74,8 @@ OBJS += \
 ./RTD/src/Tspc_Port_Ip.o 
 
 C_DEPS += \
+./RTD/src/Adc_Sar_Ip.d \
+./RTD/src/Adc_Sar_Ip_Irq.d \
 ./RTD/src/Clock_Ip.d \
 ./RTD/src/Clock_Ip_Data.d \
 ./RTD/src/Clock_Ip_Divider.d \
@@ -85,11 +95,13 @@ C_DEPS += \
 ./RTD/src/Det_stub.d \
 ./RTD/src/FlexPwm_Ip.d \
 ./RTD/src/FlexPwm_Ip_Irq.d \
+./RTD/src/IntCtrl_Ip.d \
 ./RTD/src/OsIf_Interrupts.d \
 ./RTD/src/OsIf_Timer.d \
 ./RTD/src/OsIf_Timer_System.d \
 ./RTD/src/OsIf_Timer_System_Internal_Systick.d \
 ./RTD/src/Osif_Software_Semaphore.d \
+./RTD/src/SchM_Adc.d \
 ./RTD/src/SchM_Mcu.d \
 ./RTD/src/SchM_Port.d \
 ./RTD/src/SchM_Pwm.d \
@@ -101,7 +113,7 @@ C_DEPS += \
 RTD/src/%.o: ../RTD/src/%.c
 	@echo 'Building file: $<'
 	@echo 'Invoking: Standard S32DS C Compiler'
-	arm-none-eabi-gcc "@RTD/src/Clock_Ip.args" -MMD -MP -MF"$(@:%.o=%.d)" -MT"$@" -o "$@" "$<"
+	arm-none-eabi-gcc "@RTD/src/Adc_Sar_Ip.args" -MMD -MP -MF"$(@:%.o=%.d)" -MT"$@" -o "$@" "$<"
 	@echo 'Finished building: $<'
 	@echo ' '
 

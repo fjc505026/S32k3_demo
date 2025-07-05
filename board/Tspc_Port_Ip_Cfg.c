@@ -113,6 +113,8 @@ PortContainer_0_VS_0:
     outputInversionSelect: doNotInvert, inputBufferEnable: disabled, padKeepingEnable: disabled, outputBufferEnable: enabled, InitValue: state_0}
   - {pin_num: D17, peripheral: FlexPWM_0, signal: 'pwm_0_b, 0', pin_signal: PTA2, direction: OUTPUT, safeMode: outputOff, pullSelect: pullDown, pullEnable: disabled,
     outputInversionSelect: doNotInvert, inputBufferEnable: disabled, padKeepingEnable: disabled, outputBufferEnable: enabled, InitValue: state_0}
+  - {pin_num: C17, peripheral: ADC0, signal: adc0_s14, pin_signal: PTB11, safeMode: outputOff, pullSelect: pullDown, pullEnable: disabled, outputInversionSelect: doNotInvert,
+    inputBufferEnable: enabled, padKeepingEnable: disabled, outputBufferEnable: disabled, InitValue: state_0}
  * BE CAREFUL MODIFYING THIS COMMENT - IT IS YAML SETTINGS FOR TOOLS ***********
  */
 /* clang-format on */

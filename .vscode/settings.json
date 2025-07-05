@@ -1,5 +1,6 @@
 {
     "files.associations": {
-        "flexpwm_ip.h": "c"
+        "flexpwm_ip.h": "c",
+        "clock_ip_private.h": "c"
     }
 }
